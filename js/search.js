@@ -1,18 +1,17 @@
 const search = document.querySelector( '#search' );
-const boxTexts = document.querySelectorAll( '.gallery' );
+const boxTexts = document.querySelectorAll( '.gallery a' );
 
 const handleSearch = event => {
     const searchTerm =
 event.target.value.toLowerCase();
 
 boxTexts.forEach(boxText => {
-    const text = boxText.textContent.toLowerCase();
-    const box = boxText.parentElement;
+    const text = boxText.getAttribute('data-caption').toLowerCase();
 
     if (text.includes(searchTerm)) {
-        box.style.display = "block";
+        boxText.style.display = "block";
     } else {
-        box.style.display = "none";
+        boxText.style.display = "none";
     }
     });
 
